@@ -74,37 +74,38 @@ public class Feed {
 				+ ", language=" + language + ", link=" + link + ", pubDate="
 				+ pubDate + ", title=" + title + "]";
 	}
+}
 	
-public void storeData() throws IOException{
-		
-		String URL = "jdbc:mysql://localhost:3306/standfast";
-		String user = "root";
-		String password = "tester";
-		String driver = "com.mysql.jdbc.Driver";
-		Connection connection = null;
-		
-		
-		try {
-			Class.forName(driver);
-			connection = DriverManager.getConnection(URL, user, password);
-			Statement stmt = connection.createStatement();
-			
-		
-			for (FeedMessage feed : entries) {
-				stmt.executeUpdate("INSERT INTO rss_vogella(author,title,description,link,guid) VALUES ('" + feed.getAuthor() + "', '" + feed.getTitle() + "', '" + feed.getDescription() + "','" + feed.getLink()+"', '" + feed.getGuid()+ "')");
-//				stmt.executeUpdate(" INSERT INTO book_table(name, author, subject, release_date, language) VALUES (' " + book.getName() + " ','" + ",'" + book.getAuthor() + "' ,'"
-//						+ "' ,'" + book.getSubject() + "',' " + book.getReleaseDate() + "','" + book.getLanguage()+ " ')");
-				
-			}
-		
-		
-		} catch (ClassNotFoundException e){
-			System.out.println(e.getMessage());
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-}
+//public void storeData() throws IOException{
+//		
+//		String URL = "jdbc:mysql://localhost:3306/standfast";
+//		String user = "root";
+//		String password = "tester";
+//		String driver = "com.mysql.jdbc.Driver";
+//		Connection connection = null;
+//		
+//		
+//		try {
+//			Class.forName(driver);
+//			connection = DriverManager.getConnection(URL, user, password);
+//			Statement stmt = connection.createStatement();
+//			
+//		
+//			for (FeedMessage feed : entries) {
+//				stmt.executeUpdate("INSERT INTO rss_vogella(author,title,description,link,guid) VALUES ('" + feed.getAuthor() + "', '" + feed.getTitle() + "', '" + feed.getDescription() + "','" + feed.getLink()+"', '" + feed.getGuid()+ "')");
+////				stmt.executeUpdate(" INSERT INTO book_table(name, author, subject, release_date, language) VALUES (' " + book.getName() + " ','" + ",'" + book.getAuthor() + "' ,'"
+////						+ "' ,'" + book.getSubject() + "',' " + book.getReleaseDate() + "','" + book.getLanguage()+ " ')");
+//				
+//			}
+//		
+//		
+//		} catch (ClassNotFoundException e){
+//			System.out.println(e.getMessage());
+//			
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//}
+//
+//}
 
-}
-}
 			
