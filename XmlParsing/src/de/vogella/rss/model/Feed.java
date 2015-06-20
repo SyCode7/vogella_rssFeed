@@ -1,6 +1,7 @@
 package de.vogella.rss.model;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -18,7 +19,7 @@ import javax.persistence.Id;
  */
 
 @Entity(name="Feed")
-public class Feed {
+public class Feed implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

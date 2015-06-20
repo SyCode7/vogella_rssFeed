@@ -1,19 +1,11 @@
 package de.vogella.rss.tests;
 
-import java.io.File;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-
-import org.xml.sax.XMLReader;
 
 import de.vogella.rss.model.Feed;
 import de.vogella.rss.model.FeedMessage;
