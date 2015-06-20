@@ -24,7 +24,7 @@ import de.vogella.rss.read.RSSFeedParser;
 
 public class ReadTest {
 	
-	private static final String PERSISTENCE_UNIT_NAME = "xmlparsing";
+	private static final String PERSISTENCE_UNIT_NAME = "Feed";
 	private static EntityManagerFactory factory;
 	
 	public static void main(String[] args){
@@ -51,7 +51,7 @@ public class ReadTest {
 		EntityManager em = factory.createEntityManager();
 		// read the existing entries and write to console
 		
-		Query q = em.createQuery("select t from Todo t");
+		Query q = em.createQuery("select f from Feed f");
 
 		List <Feed> feedList = q.getResultList() ;
 
