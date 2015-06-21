@@ -1,11 +1,18 @@
 package de.vogella.rss.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /*
  * Represents one RSS Message
  */
-
+@Entity
 public class FeedMessage {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	String title;
 	String description;
 	String link;

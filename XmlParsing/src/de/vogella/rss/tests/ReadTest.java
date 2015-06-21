@@ -16,7 +16,7 @@ import de.vogella.rss.read.RSSFeedParser;
 
 public class ReadTest {
 	
-	private static final String PERSISTENCE_UNIT_NAME = "Feed";
+	private static final String PERSISTENCE_UNIT_NAME = "feedMessage";
 	private static EntityManagerFactory factory;
 	
 	public static void main(String[] args){
@@ -27,13 +27,7 @@ public class ReadTest {
 		RSSFeedParser parser = new RSSFeedParser("http://www.vogella.com/article.rss");
 		Feed feed = parser.readFeed();
 		System.out.println(feed);
-//		try {
-//			feed.storeData();
-//		} catch (IOException e) {
-//			System.out.println("data stor");
-//			e.printStackTrace();
-//		}
-//		
+
 		for (FeedMessage message : feed.getMessages()) {
 			System.out.println(message);
 			
@@ -47,16 +41,12 @@ public class ReadTest {
 
 		List <Feed> feedList = q.getResultList() ;
 
-//		List<Todo> todoList = q.getResultList();
-		
 		for (Feed feed2 : feedList) {
 			System.out.println(feed2);
 			
 		}
 		System.out.println("Size:" + feedList.size());
-		
-		//create new todo
-		
+	
 		em.getTransaction().begin();
 		FeedMessage feed2 = new FeedMessage();
 		feed2.setAuthor(PERSISTENCE_UNIT_NAME);

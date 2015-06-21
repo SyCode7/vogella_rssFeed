@@ -18,11 +18,9 @@ import javax.persistence.Id;
  * Stores an RSS Message
  */
 
-@Entity(name="Feed")
-public class Feed implements Serializable {
+public class Feed {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	
 	private Long id;
 	String title;
 	String link;

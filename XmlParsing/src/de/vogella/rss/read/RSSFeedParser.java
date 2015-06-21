@@ -2,17 +2,19 @@ package de.vogella.rss.read;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 import javax.xml.stream.XMLEventReader;
-import javax.xml.stream.XMLEventWriter;
 import javax.xml.stream.XMLInputFactory;
-import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.Characters;
 import javax.xml.stream.events.XMLEvent;
+import javax.xml.transform.stream.StreamSource;
 
 import de.vogella.rss.model.Feed;
 import de.vogella.rss.model.FeedMessage;
@@ -61,11 +63,10 @@ public class RSSFeedParser {
 			
 			XMLInputFactory inputFactory = XMLInputFactory.newInstance();// creates an XMLInputFactory
 			InputStream in = read();
-			XMLEventReader eventreader = inputFactory.createXMLEventReader(in);
+			XMLEventReader eventreader = inputFactory.createXMLEventReader(in);		
+
 			
-//			XMLOutputFactory ouputFactory = XMLOutputFactory.newInstance();// creates an XMLOuputFactory
-//			OutputStream out = write();
-//			XMLEventWriter eventwriter =
+			
 			
 			while (eventreader.hasNext()) {
 				XMLEvent event = eventreader.nextEvent();
