@@ -5,6 +5,8 @@
   <persistence-unit name="feed" transaction-type="RESOURCE_LOCAL">
       <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>de.vogella.rss.model.Feed</class>
+    <class>de.vogella.rss.model.FeedMessage</class>
+    
     <properties>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
       <property name="javax.persistence.jdbc.url"
@@ -14,9 +16,7 @@
 
       <!-- EclipseLink should create the database schema automatically -->
       <property name="eclipselink.ddl-generation" value="create-tables" />
-      <property name="eclipselink.ddl-generation.output-mode"
-        value="database" />
+      <property name="eclipselink.ddl-generation.output-mode" value="database" />
     </properties>
-
   </persistence-unit>
 </persistence> 
