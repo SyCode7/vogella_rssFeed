@@ -20,7 +20,7 @@ public class FeedMessage {
 	String guid;
 	String pubDate;
 	
-//	@Column
+	@Column
 	public String getTitle() {
 		return title;
 	}
@@ -64,6 +64,7 @@ public class FeedMessage {
 	public String toString(){
 		return "FeedMessage [title=" + title + ", description = " + description + " , link = " + link + " ,  " + "  guid =  " + guid + " pubDate = " + pubDate + "]";
 	}
+
 	
 	
 

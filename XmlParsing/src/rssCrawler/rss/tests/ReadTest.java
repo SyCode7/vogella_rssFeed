@@ -33,7 +33,7 @@ public class ReadTest {
 //		RSSFeedParser parser = new RSSFeedParser("https://www.exploit-db.com/rss.xml");
 		
 
-//		PersistenceUtil util = new PersistenceUtil();
+		PersistenceUtil util = new PersistenceUtil();
 		Feed feed = parser.readFeed();
 		
 		System.out.println("PRINTING OUT THE FEED !!!!");	

@@ -31,7 +31,7 @@ public class Feed implements Serializable {
 	String guid;
 	String pubDate;
 	
-	final List<FeedMessage> entries = new ArrayList<FeedMessage>();
+	final ArrayList<FeedMessage> entries = new ArrayList<FeedMessage>();
 	
 	public Feed (String title, String link, String description, String guid, String pubDate){
 		
@@ -47,7 +47,7 @@ public class Feed implements Serializable {
 		
 	}
 
-	public List<FeedMessage> getMessages(){
+	public ArrayList<FeedMessage> getMessages(){
 		return entries;
 		
 	}
