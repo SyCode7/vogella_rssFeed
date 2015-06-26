@@ -1,5 +1,6 @@
-package de.vogella.rss.model;
+package rssCrawler.rss.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -8,6 +9,7 @@ import javax.persistence.Id;
  * Represents one RSS Message
  */
 @Entity
+
 public class FeedMessage {
 	
 	@Id@GeneratedValue
@@ -18,6 +20,7 @@ public class FeedMessage {
 	String guid;
 	String pubDate;
 	
+//	@Column
 	public String getTitle() {
 		return title;
 	}

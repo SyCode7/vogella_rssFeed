@@ -1,4 +1,4 @@
-package de.vogella.rss.tests;
+package rssCrawler.rss.tests;
 
 import java.io.IOException;
 import java.util.List;
@@ -8,12 +8,13 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import de.vogella.rss.model.Feed;
-import de.vogella.rss.model.FeedMessage;
-import de.vogella.rss.read.RSSFeedParser;
+import rssCrawler.rss.model.Feed;
+import rssCrawler.rss.model.FeedMessage;
+import rssCrawler.rss.read.RSSFeedParser;
 
 
 // Class for testing the code
+
 
 public class ReadTest {
 	
@@ -28,12 +29,16 @@ public class ReadTest {
 //		RSSFeedParser parser = new RSSFeedParser("http://www.vogella.com/article.rss");
 //		RSSFeedParser parser = new RSSFeedParser("http://feeds.reuters.com/reuters/technologysectorNews");
 //		RSSFeedParser parser = new RSSFeedParser("https://threatpost.com/category/vulnerabilities/feed");  -- not working 
-//		RSSFeedParser parser = new RSSFeedParser("http://searchcloudsecurity.techtarget.com/rss/Cloud-Security-Briefing-News-and-Advice.xml");
-		RSSFeedParser parser = new RSSFeedParser("https://www.exploit-db.com/rss.xml");
+		RSSFeedParser parser = new RSSFeedParser("http://searchcloudsecurity.techtarget.com/rss/Cloud-Security-Briefing-News-and-Advice.xml");
+//		RSSFeedParser parser = new RSSFeedParser("https://www.exploit-db.com/rss.xml");
+		
 
-		PersistenceUtil util = new PersistenceUtil();
+//		PersistenceUtil util = new PersistenceUtil();
 		Feed feed = parser.readFeed();
+		
+		System.out.println("PRINTING OUT THE FEED !!!!");	
 		System.out.println(feed);
+		System.out.println("END OF FEED PRINT !!!!");
 //		try {
 //			feed.storeData();
 //		} catch (IOException e) {
@@ -66,7 +71,7 @@ public class ReadTest {
 		
 		em.getTransaction().begin();
 		FeedMessage feed2 = new FeedMessage();
-		feed2.setTitle("title");
+		feed2.getTitle();
 		em.persist(feed2);
 		feed2.setLink("link");
 		em.persist(feed2);

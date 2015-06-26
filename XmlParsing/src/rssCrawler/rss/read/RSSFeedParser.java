@@ -1,4 +1,4 @@
-package de.vogella.rss.read;
+package rssCrawler.rss.read;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,10 +12,11 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.Characters;
 import javax.xml.stream.events.XMLEvent;
 
-import de.vogella.rss.model.Feed;
-import de.vogella.rss.model.FeedMessage;
+import rssCrawler.rss.model.Feed;
+import rssCrawler.rss.model.FeedMessage;
 
 // this class reads the xml file 
+
 
 public class RSSFeedParser {
 	
@@ -45,7 +46,7 @@ public class RSSFeedParser {
 	}
 	
 
-	public Feed readFeed() {
+	public Feed readFeed(){
 		Feed feed = null;
 		try {
 			
@@ -64,6 +65,7 @@ public class RSSFeedParser {
 			XMLInputFactory inputFactory = XMLInputFactory.newInstance();// creates an XMLInputFactory
 			InputStream in = read();
 			XMLEventReader eventreader = inputFactory.createXMLEventReader(in);
+			
 			
 		
 			while (eventreader.hasNext()) {
@@ -142,7 +144,8 @@ public class RSSFeedParser {
 
 	private String getCharacterData(XMLEvent event, XMLEventReader eventreader) throws XMLStreamException {
 		String result = "";
-		event = eventreader.nextEvent();		if (event instanceof Characters) {
+		event = eventreader.nextEvent();	
+		if (event instanceof Characters) {
 			result = event.asCharacters().getData();
 		}
 		return result;
@@ -163,6 +166,21 @@ public class RSSFeedParser {
 		 throw new RuntimeException(e);
 		}
 	} 
+	
+	
+//	private void writeToFile(){
+//		
+//		String file = "E:\\git\\vogella_rss\\XmlParsing\\target\\output.txt";
+//		File outfile = new File(file);
+//		
+//		XMLOutputFactory outputfactory = XMLOutputFactory.newInstance();
+//		try {
+//			BufferedOutputStream outStream = new BufferedOutputStream(new FileOutputStream(file));
+//		} catch (FileNotFoundException e) {
+//			System.out.println("File not found !!");
+//			e.printStackTrace();
+//		}
+//	}
 
 }
 				

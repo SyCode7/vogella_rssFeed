@@ -4,8 +4,8 @@
   version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
   <persistence-unit name="feed" transaction-type="RESOURCE_LOCAL">
       <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>de.vogella.rss.model.Feed</class>
-    <class>de.vogella.rss.model.FeedMessage</class>
+    <class>rssCrawler.rss.model.Feed</class>
+    <class>rssCrawler.rss.model.FeedMessage</class>
     
     <properties>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />

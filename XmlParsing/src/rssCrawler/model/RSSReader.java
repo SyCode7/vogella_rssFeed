@@ -1,4 +1,4 @@
-package de.jaxb.model;
+package rssCrawler.model;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,8 +14,8 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.transform.stream.StreamSource;
 
-import de.vogella.rss.model.Feed;
-import de.vogella.rss.model.FeedMessage;
+import rssCrawler.rss.model.Feed;
+import rssCrawler.rss.model.FeedMessage;
 
 
 //@XmlElementWrapper( name = "channel" )

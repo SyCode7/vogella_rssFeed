@@ -1,4 +1,4 @@
-package de.vogella.rss.model;
+package rssCrawler.rss.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,6 +14,7 @@ import javax.persistence.Id;
  */
 
 @Entity(name="Feed")
+
 public class Feed implements Serializable {
 	
 	/**
