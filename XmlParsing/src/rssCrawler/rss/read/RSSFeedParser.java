@@ -22,8 +22,8 @@ public class RSSFeedParser {
 	
 	static final String TITLE = "title";
 	static final String DESCRIPTION = "description";
-	static final String GUID = "guid";
 	static final String LINK = "link";
+	static final String GUID = "guid";
 	static final String PUB_DATE = "pubDate";
 //	static final String CHANNEL = "channel";
 //	static final String LANGUAGE = "language";
@@ -54,8 +54,8 @@ public class RSSFeedParser {
 			
 			
 			String title = "";
-			String link = ""; 
 			String description = "";
+			String link = ""; 
 			String guid = "";
 			String pubDate = "";
 //			String language ="";
@@ -65,9 +65,7 @@ public class RSSFeedParser {
 			XMLInputFactory inputFactory = XMLInputFactory.newInstance();// creates an XMLInputFactory
 			InputStream in = read();
 			XMLEventReader eventreader = inputFactory.createXMLEventReader(in);
-			
-			
-		
+			//read the xml document		
 			while (eventreader.hasNext()) {
 				XMLEvent event = eventreader.nextEvent();
 				if (event.isStartElement()) {
@@ -77,20 +75,19 @@ public class RSSFeedParser {
 					case TITLE:
 						if (isFeedHeader) {
 							isFeedHeader = false;
-							feed = new Feed(title, link, description, guid, pubDate);
+							feed = new Feed(title, description, link, guid, pubDate);
 						}
 						event = eventreader.nextEvent();
 						break;
-					
-						
-					case LINK:
-						link = getCharacterData(event, eventreader);
-						break;
-						
+																
 					case DESCRIPTION:
 						description = getCharacterData(event, eventreader);
 						break;
 					
+					case LINK:
+						link = getCharacterData(event, eventreader);
+						break;
+						
 					case GUID:
 						guid = getCharacterData(event, eventreader);
 						break;
@@ -122,8 +119,8 @@ public class RSSFeedParser {
 					if (event.asEndElement().getName().getLocalPart() == (TITLE)) {
 						FeedMessage message = new FeedMessage();
 						message.setTitle(title);
-						message.setLink(link);
 						message.setDescription(description);
+						message.setLink(link);
 						message.setGuid(guid);
 						message.setPubDate(pubDate);
 						feed.getMessages().add(message);
@@ -142,7 +139,7 @@ public class RSSFeedParser {
 	}
 
 
-	private String getCharacterData(XMLEvent event, XMLEventReader eventreader) throws XMLStreamException {
+	private String 	getCharacterData(XMLEvent event, XMLEventReader eventreader) throws XMLStreamException {
 		String result = "";
 		event = eventreader.nextEvent();	
 		if (event instanceof Characters) {

@@ -26,18 +26,18 @@ public class Feed implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	String title;
-	String link;
 	String description;
+	String link;
 	String guid;
 	String pubDate;
 	
 	final ArrayList<FeedMessage> entries = new ArrayList<FeedMessage>();
 	
-	public Feed (String title, String link, String description, String guid, String pubDate){
+	public Feed (String title, String description, String link, String guid, String pubDate){
 		
 		this.title = title;
-		this.link = link;
 		this.description = description;
+		this.link = link;
 		this.guid = guid;
 		this.pubDate = pubDate;
 		
@@ -55,14 +55,14 @@ public class Feed implements Serializable {
 		return title;
 	}
 
-	public String getLink() {
-		return link;
-	}
 
 	public String getDescription() {
 		return description;
 	}
 	
+	public String getLink() {
+		return link;
+	}
 	public String getGuid() {
 		return guid;
 	}
@@ -75,10 +75,15 @@ public class Feed implements Serializable {
 		return entries;
 	}
 
+//	@Override
+//	public String toString() {
+//		return "Feed [title=" + title + ",  description="
+//				+ description + ", link=" + link + ", guid=" + guid + ", pubDate=" + pubDate + "]";
+//	}
+	
 	@Override
 	public String toString() {
-		return "Feed [title=" + title + ", link=" + link + ", description="
-				+ description + ", guid=" + guid + ", pubDate=" + pubDate + "]";
+		return  title + ";"	+ description + ";" + link + ";" + guid + ";" + pubDate;
 	}
 	
 

@@ -38,7 +38,7 @@ public class ReadTest {
 		
 		System.out.println("PRINTING OUT THE FEED !!!!");	
 		System.out.println(feed);
-		System.out.println("END OF FEED PRINT !!!!");
+
 //		try {
 //			feed.storeData();
 //		} catch (IOException e) {
@@ -51,40 +51,7 @@ public class ReadTest {
 			
 		}
 		
-		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-		EntityManager em = factory.createEntityManager();
-		// read the existing entries and write to console
 		
-		Query q = em.createQuery("select f from Feed f");
-
-		List <Feed> feedList = q.getResultList();
-
-//		List<Todo> todoList = q.getResultList();
-		
-		for (Feed feed2 : feedList) {
-			System.out.println(feed2);
-			
-		}
-		System.out.println("Size:" + feedList.size());
-		
-		//create new todo
-		
-		em.getTransaction().begin();
-		FeedMessage feed2 = new FeedMessage();
-		feed2.getTitle();
-		em.persist(feed2);
-		feed2.setLink("link");
-		em.persist(feed2);
-		feed2.setDescription("description");
-		em.persist(feed2);
-		feed2.setGuid("guid");
-		em.persist(feed2);
-		feed2.setPubDate("pubDate");
-		em.persist(feed2);
-
-		em.getTransaction().commit();
-		
-		em.close();
 	}
 	
 }

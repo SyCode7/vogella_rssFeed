@@ -20,8 +20,8 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/Kennedy/.m2/repository/javax/jdo/jdo2-api/2.3-eb/jdo2-api-2.3-eb.jar" sourcepath="C:/Users/Kennedy/.m2/repository/javax/jdo/jdo2-api/2.3-eb/jdo2-api-2.3-eb-sources.jar">
 		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="javadoc_location" value="jar:file:/C:/Users/Kennedy/.m2/repository/javax/jdo/jdo2-api/2.3-eb/jdo2-api-2.3-eb-javadoc.jar!/"/>
+			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="maven.groupId" value="javax.jdo"/>
 			<attribute name="maven.artifactId" value="jdo2-api"/>
 			<attribute name="maven.version" value="2.3-eb"/>
@@ -30,13 +30,14 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/Kennedy/.m2/repository/javax/transaction/javax.transaction-api/1.2/javax.transaction-api-1.2.jar" sourcepath="C:/Users/Kennedy/.m2/repository/javax/transaction/javax.transaction-api/1.2/javax.transaction-api-1.2-sources.jar">
 		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="javadoc_location" value="jar:file:/C:/Users/Kennedy/.m2/repository/javax/transaction/javax.transaction-api/1.2/javax.transaction-api-1.2-javadoc.jar!/"/>
+			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="maven.groupId" value="javax.transaction"/>
 			<attribute name="maven.artifactId" value="javax.transaction-api"/>
 			<attribute name="maven.version" value="1.2"/>
 			<attribute name="maven.scope" value="provided"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Kennedy/Downloads/opencsv-3.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

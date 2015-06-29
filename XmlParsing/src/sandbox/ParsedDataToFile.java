@@ -24,11 +24,10 @@ public class ParsedDataToFile {
 	public static void main(String[] args) throws IOException {
 		try {
 		
-		RSSFeedParser parser = new RSSFeedParser("http://searchcloudsecurity.techtarget.com/rss/Cloud-Security-Briefing-News-and-Advice.xml");
+		RSSFeedParser parser = new RSSFeedParser("https://www-304.ibm.com/connections/blogs/roller-ui/rendering/feed/PSIRT/entries/atom?lang=en_us");
 		Feed feed = parser.readFeed();
-
 	
-		String input = "C:\\Users\\Kennedy\\workspace\\demo.txt";
+		String input = "C:\\Users\\Kennedy\\workspace\\demo1.txt";
 		File newFile = new File(input);
 		
 		if (!newFile.exists()){
@@ -36,38 +35,17 @@ public class ParsedDataToFile {
 		}
 		
 			FileWriter writer = new FileWriter(newFile.getAbsoluteFile());
-			PrintWriter out  = new PrintWriter(new BufferedWriter(writer));
-//			FeedMessage str = new FeedMessage();
-			FeedMessage message1 = new FeedMessage();
-			String [] saver = message1.getMessage();
-
-			for (FeedMessage message : feed.getMessages()) {
-//				System.out.println(message);
-				String appender = "";
-				for(String s : message){
-					
-				}
-				writer.write("Attempt One");
+//			PrintWriter out  = new PrintWriter(new BufferedWriter(writer));
+//			FeedMessage message1 = new FeedMessage();
+			int sx = feed.getMessages().size();
+			for (int i = 0; i < sx; i++) {
+				
+				writer.write(feed.getMessages().get(i).toString() + "\n");
 			}
-				writer.close();
-			
-			
-//			FeedMessage saver = new FeedMessage();
-//			for (int i = 0; i < saver.length; i++) {
-//				
-//					out.write(Integer.toString()(saver);
-//			}
-//				System.out.println(saver);
-			
-						
+			writer.close();
 
-//				System.out.println(saver);
-//				out.close();
-				
-			
-			
-//			System.out.println("File successfully written to at " + input );
-				
+			System.out.println("File successfully written into "  + input);
+	
 		} catch (IOException e) {
 			System.out.println("File writing operation failed ");
 			e.printStackTrace();

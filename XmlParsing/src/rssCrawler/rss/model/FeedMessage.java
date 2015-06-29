@@ -15,8 +15,8 @@ public class FeedMessage {
 	@Id@GeneratedValue
 	int id;
 	String title;
-	String link;
 	String description;
+	String link;
 	String guid;
 	String pubDate;
 	
@@ -29,12 +29,6 @@ public class FeedMessage {
 		this.title = title;
 	}
 	
-	public String getLink() {
-		return link;
-	}
-	public void setLink(String link) {
-		this.link = link;
-	}
 	
 	public String getDescription() {
 		return description;
@@ -42,6 +36,12 @@ public class FeedMessage {
 	
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public String getLink() {
+		return link;
+	}
+	public void setLink(String link) {
+		this.link = link;
 	}
 	
 	public String getGuid() {
@@ -64,6 +64,10 @@ public class FeedMessage {
 	public String toString(){
 		return "FeedMessage [title=" + title + ", description = " + description + " , link = " + link + " ,  " + "  guid =  " + guid + " pubDate = " + pubDate + "]";
 	}
+	
+//	public String toString(){
+//		return  title + " ; " + description + " ; " + link + " ; " + " ; " + guid + " ; " + pubDate + "]";
+//	}
 
 	
 	
