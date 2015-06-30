@@ -5,7 +5,10 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.security.cert.X509Certificate;
 
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
@@ -76,6 +79,8 @@ public class RSSFeedParser {
 						if (isFeedHeader) {
 							isFeedHeader = false;
 							feed = new Feed(title, description, link, guid, pubDate);
+							title = getCharacterData(event, eventreader);
+
 						}
 						event = eventreader.nextEvent();
 						break;
@@ -151,10 +156,27 @@ public class RSSFeedParser {
 
 
 	private InputStream read() {
+		
+		
+		TrustManager[] trustallCerts = new TrustManager[]{
+				new X509TrustManager() {
+					
+			    public X509Certificate[] getAcceptedIssuers() {
+				return null;
+				}
+					
+					
+				public void checkServerTrusted(X509Certificate[] certs, String authType){
+				}
+					
+				public void checkClientTrusted(X509Certificate[] certs, String authType) {							
+				}
+		}
+				
+	};
 		try {
 			
 			URLConnection openconnection = url.openConnection();
-			openconnection.addRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0");
 			
 			return url.openStream();
 			

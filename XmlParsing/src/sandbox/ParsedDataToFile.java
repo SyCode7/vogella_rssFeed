@@ -21,10 +21,13 @@ import rssCrawler.*;
 
 public class ParsedDataToFile {
 	
+//	 public void dataToFile() {
+	
+
 	public static void main(String[] args) throws IOException {
-		try {
+		try{
 		
-		RSSFeedParser parser = new RSSFeedParser("https://www-304.ibm.com/connections/blogs/roller-ui/rendering/feed/PSIRT/entries/atom?lang=en_us");
+		RSSFeedParser parser = new RSSFeedParser("http://www.ubuntu.com/usn/rss.xml");
 		Feed feed = parser.readFeed();
 	
 		String input = "C:\\Users\\Kennedy\\workspace\\demo1.txt";
@@ -54,5 +57,4 @@ public class ParsedDataToFile {
 		
 	} 
 	
-	 
-}
+ }
