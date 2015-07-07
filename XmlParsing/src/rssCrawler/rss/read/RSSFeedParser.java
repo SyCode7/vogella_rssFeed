@@ -40,9 +40,6 @@ public class RSSFeedParser {
 		try {
 			this.url = new URL(feedUrl);
 			
-
-//			url.addRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0");
-
 		} catch (MalformedURLException e) {
 			throw new RuntimeException(e);
 		}
@@ -185,21 +182,6 @@ public class RSSFeedParser {
 		 throw new RuntimeException(e);
 		}
 	} 
-	
-	
-//	private void writeToFile(){
-//		
-//		String file = "E:\\git\\vogella_rss\\XmlParsing\\target\\output.txt";
-//		File outfile = new File(file);
-//		
-//		XMLOutputFactory outputfactory = XMLOutputFactory.newInstance();
-//		try {
-//			BufferedOutputStream outStream = new BufferedOutputStream(new FileOutputStream(file));
-//		} catch (FileNotFoundException e) {
-//			System.out.println("File not found !!");
-//			e.printStackTrace();
-//		}
-//	}
+}	
 
-}
 				

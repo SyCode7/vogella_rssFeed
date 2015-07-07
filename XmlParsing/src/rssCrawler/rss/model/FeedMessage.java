@@ -61,13 +61,17 @@ public class FeedMessage {
 	}
 	
 	
-	public String toString(){
-		return "FeedMessage [title=" + title + ", description = " + description + " , link = " + link + " ,  " + "  guid =  " + guid + " pubDate = " + pubDate + "]";
-	}
-	
 //	public String toString(){
-//		return  title + " ; " + description + " ; " + link + " ; " + " ; " + guid + " ; " + pubDate + "]";
+//		return "FeedMessage [title=" + title + ", description = " + description + " , link = " + link + " ,  " + "  guid =  " + guid + " pubDate = " + pubDate + "]";
 //	}
+//	
+//	public String toString(){
+//		return "Title =" + title + ", Description = " + description + " , Link = " + link + "  ,Guid =  " + guid + " , PubDate = " + pubDate ;
+//	}
+
+	public String toString(){
+		return   title + " ; " + description + " ; " + link + " ; " + " ; " + guid + " ; " + pubDate ;
+	}
 
 	
 	

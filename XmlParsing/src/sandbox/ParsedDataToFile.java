@@ -1,22 +1,10 @@
 package sandbox;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Scanner;
-
 import rssCrawler.rss.model.Feed;
-import rssCrawler.rss.model.FeedMessage;
 import rssCrawler.rss.read.RSSFeedParser;
-import rssCrawler.*;
 
 
 public class ParsedDataToFile {
@@ -27,10 +15,10 @@ public class ParsedDataToFile {
 	public static void main(String[] args) throws IOException {
 		try{
 		
-		RSSFeedParser parser = new RSSFeedParser("http://www.ubuntu.com/usn/rss.xml");
+		RSSFeedParser parser = new RSSFeedParser("https://feeds.feedburner.com/ZDI-Published-Advisories");
 		Feed feed = parser.readFeed();
 	
-		String input = "C:\\Users\\Kennedy\\workspace\\demo1.txt";
+		String input = "E:\\testFiles\\demo1.txt";
 		File newFile = new File(input);
 		
 		if (!newFile.exists()){
