@@ -1,16 +1,24 @@
 package rssCrawler.rss.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /*
  * Represents one RSS Message
  */
 @Entity
-
-public class FeedMessage {
+@Table(name="feeds3")
+public class FeedMessage implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6439415026671395512L;
 	
 	@Id@GeneratedValue
 	int id;
@@ -20,7 +28,7 @@ public class FeedMessage {
 	String guid;
 	String pubDate;
 	
-	@Column
+	
 	public String getTitle() {
 		return title;
 	}
@@ -65,13 +73,20 @@ public class FeedMessage {
 //		return "FeedMessage [title=" + title + ", description = " + description + " , link = " + link + " ,  " + "  guid =  " + guid + " pubDate = " + pubDate + "]";
 //	}
 //	
+//	@Override
 //	public String toString(){
-//		return "Title =" + title + ", Description = " + description + " , Link = " + link + "  ,Guid =  " + guid + " , PubDate = " + pubDate ;
+//		return "Title =" + title + ", Description =" + description + ", Link =" + link ;
 //	}
 
+	@Override
 	public String toString(){
-		return   title + " ; " + description + " ; " + link + " ; " + " ; " + guid + " ; " + pubDate ;
+		return   title + "," + description + "," + link + "," + guid + "," + pubDate ;
 	}
+
+//	@Override
+//	public String toString(){
+//		return   title + "," + description + "," + link ;
+//	}
 
 	
 	

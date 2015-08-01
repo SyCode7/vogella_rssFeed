@@ -1,8 +1,6 @@
 package database;
 
-import org.mongodb.morphia.annotations.Entity;
 
-@Entity
 public class DescDetails extends QueryPOJO {
 	
 	private String CVE;

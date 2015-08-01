@@ -28,13 +28,14 @@ public class RSSFeedParser {
 	static final String LINK = "link";
 	static final String GUID = "guid";
 	static final String PUB_DATE = "pubDate";
-//	static final String CHANNEL = "channel";
-//	static final String LANGUAGE = "language";
-//	static final String COPYRIGHT = "copyright";
-//	static final String AUTHOR = "author";
-//	static final String ITEM = "item";
+	static final String CHANNEL = "channel";
+	static final String LANGUAGE = "language";
+	static final String COPYRIGHT = "copyright";
+	static final String AUTHOR = "author";
+	static final String ITEM = "item";
 	
-	 URL url = null;
+	URL url = null;
+	
 	
 	public RSSFeedParser(String feedUrl) throws IOException{
 		try {
@@ -44,6 +45,15 @@ public class RSSFeedParser {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	/**
+	 * Generates a constructor to handle the conversion of xml files into csv files
+	 */
+	
+	public RSSFeedParser() {
+
+	}
+
 	
 
 	public Feed readFeed(){
@@ -58,9 +68,9 @@ public class RSSFeedParser {
 			String link = ""; 
 			String guid = "";
 			String pubDate = "";
-//			String language ="";
-//			String copyright = "";
-//			String author = "";
+			String language ="";
+			String copyright = "";
+			String author = "";
 			
 			XMLInputFactory inputFactory = XMLInputFactory.newInstance();// creates an XMLInputFactory
 			InputStream in = read();
@@ -72,24 +82,34 @@ public class RSSFeedParser {
 					String localPart = event.asStartElement().getName().getLocalPart();
 					
 					switch(localPart){
-					case TITLE:
+										
+					case ITEM:
 						if (isFeedHeader) {
 							isFeedHeader = false;
 							feed = new Feed(title, description, link, guid, pubDate);
-							title = getCharacterData(event, eventreader);
-
-						}
+//							feed = new Feed(title, description, link);
+						}							
 						event = eventreader.nextEvent();
 						break;
-																
-					case DESCRIPTION:
-						description = getCharacterData(event, eventreader);
-						break;
+						
+					case TITLE:
+						title = getCharacterData(event, eventreader);
+						
+						break;	
+						
+					case DESCRIPTION:						
+						description = getCharacterData(event, eventreader).trim();
+						description = description.replace(",","&");
+					 
+					break;
 					
 					case LINK:
-						link = getCharacterData(event, eventreader);
-						break;
 						
+						link = getCharacterData(event, eventreader);
+						link = link.replace(".", "_");
+						
+						break;
+					
 					case GUID:
 						guid = getCharacterData(event, eventreader);
 						break;
@@ -97,28 +117,29 @@ public class RSSFeedParser {
 					
 					case PUB_DATE:
 						pubDate = getCharacterData(event, eventreader);
+						pubDate = pubDate.replace(",", "-");
 						break;
 						
 //					case TITLE:
 //						title = getCharacterData(event, eventreader);
 //						break;
 						
-//					case LANGUAGE:
-//						title = getCharacterData(event, eventreader);
-//						break;
+					case LANGUAGE:
+						title = getCharacterData(event, eventreader);
+						break;
 						
-//					case AUTHOR:
-//						author = getCharacterData(event, eventreader);
-//						break;
+					case AUTHOR:
+						author = getCharacterData(event, eventreader);
+						break;
 						
 					
-//					case COPYRIGHT:
-//						title = getCharacterData(event, eventreader);
-//						break;
-					}
+					case COPYRIGHT:
+						title = getCharacterData(event, eventreader);
+						break;
+						}
 					
 				} else if (event.isEndElement()) {
-					if (event.asEndElement().getName().getLocalPart() == (TITLE)) {
+					if (event.asEndElement().getName().getLocalPart() == (ITEM)) {
 						FeedMessage message = new FeedMessage();
 						message.setTitle(title);
 						message.setDescription(description);
@@ -146,6 +167,7 @@ public class RSSFeedParser {
 		event = eventreader.nextEvent();	
 		if (event instanceof Characters) {
 			result = event.asCharacters().getData();
+			
 		}
 		return result;
 		
@@ -173,7 +195,7 @@ public class RSSFeedParser {
 	};
 		try {
 			
-			URLConnection openconnection = url.openConnection();
+//			URLConnection openconnection = url.openConnection();
 			
 			return url.openStream();
 			

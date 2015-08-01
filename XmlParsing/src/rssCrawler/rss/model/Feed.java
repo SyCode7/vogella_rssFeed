@@ -13,7 +13,7 @@ import javax.persistence.Id;
  * Stores an RSS Message
  */
 
-@Entity(name="Feed")
+//@Entity(name="Feed")
 
 public class Feed implements Serializable {
 	
@@ -22,9 +22,10 @@ public class Feed implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.AUTO)
+//	private Long id;
+//	
 	String title;
 	String description;
 	String link;
@@ -34,6 +35,8 @@ public class Feed implements Serializable {
 	final ArrayList<FeedMessage> entries = new ArrayList<FeedMessage>();
 	
 	public Feed (String title, String description, String link, String guid, String pubDate){
+//		public Feed (String title, String description, String link){
+
 		
 		this.title = title;
 		this.description = description;
@@ -83,10 +86,13 @@ public class Feed implements Serializable {
 	
 	@Override
 	public String toString() {
-		return  title + ";"	+ description + ";" + link + ";" + guid + ";" + pubDate;
+		return  title + ","	+ description + "," + link + "," + guid + "," + pubDate;
 	}
 	
-
+//	@Override
+//	public String toString() {
+//		return  title + ";"	+ description + ";" + link ;
+//	}
 	
 }
 	

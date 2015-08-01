@@ -1,23 +1,8 @@
 package database;
 
-import org.mongodb.morphia.*;
-import org.mongodb.morphia.annotations.Entity;
-import org.mongodb.morphia.annotations.Field;
-import org.mongodb.morphia.annotations.Id;
-import org.mongodb.morphia.annotations.Index;
-import org.mongodb.morphia.annotations.Indexes;
-import org.mongodb.morphia.annotations.Property;
-
- 
-
-
-@Entity("feeds")
-@Indexes(@Index(fields = @Field(value = "$**, type = Index.TEXT")))
 
 public class QueryPOJO {
 
-	@Id
-	@Property("id")
 	private int id;
 	private String title;
 	private String description;
@@ -25,8 +10,7 @@ public class QueryPOJO {
 	private String guid;
 	private String pubDate;
 	
-	
-	
+
 	public String getTitle() {
 		return title;
 	}
