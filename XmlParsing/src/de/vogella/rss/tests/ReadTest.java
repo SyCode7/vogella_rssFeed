@@ -21,10 +21,10 @@ public class ReadTest {
 	
 	public static void main(String[] args){
 		
-//		RSSFeedParser parser = new RSSFeedParser("http://blogs.aws.amazon.com/security/blog/feed/recentPosts.rss"); //possible way for getting from the NVD ??
+		RSSFeedParser parser = new RSSFeedParser("http://blogs.aws.amazon.com/security/blog/feed/recentPosts.rss"); //possible way for getting from the NVD ??
 		
 		
-		RSSFeedParser parser = new RSSFeedParser("http://www.vogella.com/article.rss");
+//		RSSFeedParser parser = new RSSFeedParser("http://www.vogella.com/article.rss");
 		Feed feed = parser.readFeed();
 		System.out.println(feed);
 //		try {
